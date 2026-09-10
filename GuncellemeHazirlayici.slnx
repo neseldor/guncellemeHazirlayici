@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/GuncellemeHazirlayici/GuncellemeHazirlayici.csproj" />
+  <Project Path="tests/GuncellemeHazirlayici.Tests/GuncellemeHazirlayici.Tests.csproj" />
+</Solution>
+
