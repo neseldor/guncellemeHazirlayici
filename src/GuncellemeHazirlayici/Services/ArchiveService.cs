@@ -107,7 +107,7 @@ public sealed class ArchiveService : IArchiveService
                 if (attributes.HasFlag(FileAttributes.Directory))
                 {
                     if (!attributes.HasFlag(FileAttributes.ReparsePoint)
-                        && (isInstallationArchive || !ExcludedDirectoryNames.Contains(Path.GetFileName(entryPath))))
+                        && !ExcludedDirectoryNames.Contains(Path.GetFileName(entryPath)))
                     {
                         pendingFolders.Push(entryPath);
                     }

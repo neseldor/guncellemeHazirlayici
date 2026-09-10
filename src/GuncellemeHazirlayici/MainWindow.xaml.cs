@@ -186,7 +186,7 @@ public partial class MainWindow : Window
 
         SelectedDatePicker.IsEnabled = !_isBusy && InstallationArchiveCheckBox.IsChecked != true;
         FooterDescriptionTextBlock.Text = InstallationArchiveCheckBox.IsChecked == true
-            ? "Tüm klasör tarihe bakılmadan arşivlenir; ana dizindeki arşiv dosyaları atlanır."
+            ? "Tarih filtresi uygulanmaz; temp, pdf, excell, indir klasörleri ve ana dizindeki arşiv dosyaları atlanır."
             : "Alt klasör yapısı korunur; temp, pdf, excell, indir, .config ve deepzoom.aspx atlanır.";
         RefreshReadyState(showStatus: true);
     }

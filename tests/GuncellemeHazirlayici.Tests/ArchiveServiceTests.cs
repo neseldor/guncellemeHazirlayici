@@ -10,14 +10,14 @@ public sealed class ArchiveServiceTests
         new(2026, 9, 4, 15, 30, 45, TimeSpan.Zero);
 
     [Fact]
-    public async Task InstallationIncludesOldAndConfigurationFilesButSkipsOnlyRootArchives()
+    public async Task InstallationIncludesOldAndConfigurationFilesButSkipsRootArchivesAndExcludedFolders()
     {
         using var testDirectory = new TestDirectory();
         var source = testDirectory.CreateDirectory("Kaynak");
         string[] included = ["old.txt", "web.CONFIG", "DeepZoom.aspx", "Alt/app.config",
-            "Alt/deepzoom.aspx", "Alt/backup.zip", "temp/file.txt", "pdf/file.txt",
-            "Alt/excell/file.txt", "indir/file.txt"];
-        foreach (var name in included.Concat(["backup.ZIP", "backup.RaR", "backup.7z", "backup.tar.gz"]))
+            "Alt/deepzoom.aspx", "Alt/backup.zip"];
+        foreach (var name in included.Concat(["backup.ZIP", "backup.RaR", "backup.7z", "backup.tar.gz",
+            "temp/file.txt", "PDF/file.txt", "Alt/ExCeLl/file.txt", "indir/file.txt"]))
         {
             var path = testDirectory.CreateFile("Kaynak/" + name, name);
             File.SetLastWriteTime(path, new DateTime(2020, 1, 1));
